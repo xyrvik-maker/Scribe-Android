@@ -85,6 +85,15 @@
             android:exported="false"
             android:parentActivityName=".MainActivity" />
 
+        <!-- Crash reporter — uses a built-in system theme so it can never
+             itself crash due to missing custom resources. -->
+        <activity
+            android:name=".CrashActivity"
+            android:exported="false"
+            android:theme="@android:style/Theme.DeviceDefault.Light.NoActionBar"
+            android:excludeFromRecents="true"
+            android:launchMode="singleInstance" />
+
         <!-- File provider for sharing exported files -->
         <provider
             android:name="androidx.core.content.FileProvider"
