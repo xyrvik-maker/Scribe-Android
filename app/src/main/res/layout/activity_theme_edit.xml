@@ -1,0 +1,133 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ScrollView
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        android:paddingBottom="32dp">
+
+        <!-- Live preview -->
+        <androidx.cardview.widget.CardView
+            android:id="@+id/theme_preview_card"
+            android:layout_width="match_parent"
+            android:layout_height="120dp"
+            android:layout_margin="16dp"
+            app:cardCornerRadius="8dp"
+            app:cardElevation="2dp"
+            xmlns:app="http://schemas.android.com/apk/res-auto">
+            <TextView
+                android:id="@+id/tv_theme_preview"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:padding="16dp"
+                android:text="The first draft is mostly about getting the shape down. Don't fix the prose yet. Pour it out and then walk away."
+                android:textSize="15sp" />
+        </androidx.cardview.widget.CardView>
+
+        <!-- Name -->
+        <TextView style="@style/SectionHeader" android:text="Name" />
+        <com.google.android.material.textfield.TextInputLayout
+            style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginHorizontal="16dp">
+            <EditText android:id="@+id/et_theme_name" android:layout_width="match_parent" android:layout_height="wrap_content" android:hint="Theme name" />
+        </com.google.android.material.textfield.TextInputLayout>
+
+        <!-- Typography -->
+        <TextView style="@style/SectionHeader" android:text="Typography" />
+
+        <LinearLayout style="@style/SettingsRow" android:id="@+id/tv_font_family_row">
+            <TextView style="@style/SettingsLabel" android:layout_width="0dp" android:layout_weight="1" android:text="Font family" />
+            <TextView android:id="@+id/tv_font_family" style="@style/SettingsValue" android:text="serif" />
+        </LinearLayout>
+
+        <LinearLayout style="@style/SettingsRow">
+            <TextView style="@style/SettingsLabel" android:layout_width="0dp" android:layout_weight="1" android:text="Font size" />
+            <TextView android:id="@+id/tv_theme_font_size_val" style="@style/SettingsValue" android:text="18sp" />
+        </LinearLayout>
+        <com.google.android.material.slider.Slider android:id="@+id/slider_theme_font_size" android:layout_width="match_parent" android:layout_height="wrap_content" android:layout_marginHorizontal="16dp" android:valueFrom="14" android:valueTo="24" android:stepSize="1" />
+
+        <LinearLayout style="@style/SettingsRow">
+            <TextView style="@style/SettingsLabel" android:layout_width="0dp" android:layout_weight="1" android:text="Line height" />
+            <TextView android:id="@+id/tv_line_height_val" style="@style/SettingsValue" android:text="1.70" />
+        </LinearLayout>
+        <com.google.android.material.slider.Slider android:id="@+id/slider_line_height" android:layout_width="match_parent" android:layout_height="wrap_content" android:layout_marginHorizontal="16dp" android:valueFrom="1.2" android:valueTo="2.5" android:stepSize="0.05" />
+
+        <!-- Layout -->
+        <TextView style="@style/SectionHeader" android:text="Layout" />
+
+        <LinearLayout style="@style/SettingsRow">
+            <TextView style="@style/SettingsLabel" android:layout_width="0dp" android:layout_weight="1" android:text="Horizontal padding" />
+            <TextView android:id="@+id/tv_pad_h_val" style="@style/SettingsValue" android:text="24dp" />
+        </LinearLayout>
+        <com.google.android.material.slider.Slider android:id="@+id/slider_pad_h" android:layout_width="match_parent" android:layout_height="wrap_content" android:layout_marginHorizontal="16dp" android:valueFrom="8" android:valueTo="48" android:stepSize="2" />
+
+        <LinearLayout style="@style/SettingsRow">
+            <TextView style="@style/SettingsLabel" android:layout_width="0dp" android:layout_weight="1" android:text="Vertical padding" />
+            <TextView android:id="@+id/tv_pad_v_val" style="@style/SettingsValue" android:text="20dp" />
+        </LinearLayout>
+        <com.google.android.material.slider.Slider android:id="@+id/slider_pad_v" android:layout_width="match_parent" android:layout_height="wrap_content" android:layout_marginHorizontal="16dp" android:valueFrom="8" android:valueTo="48" android:stepSize="2" />
+
+        <LinearLayout style="@style/SettingsRow">
+            <TextView style="@style/SettingsLabel" android:layout_width="0dp" android:layout_weight="1" android:text="Max width" />
+            <TextView android:id="@+id/tv_max_width_val" style="@style/SettingsValue" android:text="720dp" />
+        </LinearLayout>
+        <com.google.android.material.slider.Slider android:id="@+id/slider_max_width" android:layout_width="match_parent" android:layout_height="wrap_content" android:layout_marginHorizontal="16dp" android:valueFrom="400" android:valueTo="900" android:stepSize="10" />
+
+        <!-- Colors -->
+        <TextView style="@style/SectionHeader" android:text="Colors" />
+
+        <com.google.android.material.textfield.TextInputLayout style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox" android:layout_width="match_parent" android:layout_height="wrap_content" android:layout_marginHorizontal="16dp" android:layout_marginBottom="8dp" android:hint="Background">
+            <EditText android:id="@+id/et_color_background" android:layout_width="match_parent" android:layout_height="wrap_content" android:inputType="text" android:maxLines="1" />
+        </com.google.android.material.textfield.TextInputLayout>
+
+        <com.google.android.material.textfield.TextInputLayout style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox" android:layout_width="match_parent" android:layout_height="wrap_content" android:layout_marginHorizontal="16dp" android:layout_marginBottom="8dp" android:hint="Surface">
+            <EditText android:id="@+id/et_color_surface" android:layout_width="match_parent" android:layout_height="wrap_content" android:inputType="text" android:maxLines="1" />
+        </com.google.android.material.textfield.TextInputLayout>
+
+        <com.google.android.material.textfield.TextInputLayout style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox" android:layout_width="match_parent" android:layout_height="wrap_content" android:layout_marginHorizontal="16dp" android:layout_marginBottom="8dp" android:hint="Text">
+            <EditText android:id="@+id/et_color_text" android:layout_width="match_parent" android:layout_height="wrap_content" android:inputType="text" android:maxLines="1" />
+        </com.google.android.material.textfield.TextInputLayout>
+
+        <com.google.android.material.textfield.TextInputLayout style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox" android:layout_width="match_parent" android:layout_height="wrap_content" android:layout_marginHorizontal="16dp" android:layout_marginBottom="8dp" android:hint="Muted text">
+            <EditText android:id="@+id/et_color_muted_text" android:layout_width="match_parent" android:layout_height="wrap_content" android:inputType="text" android:maxLines="1" />
+        </com.google.android.material.textfield.TextInputLayout>
+
+        <com.google.android.material.textfield.TextInputLayout style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox" android:layout_width="match_parent" android:layout_height="wrap_content" android:layout_marginHorizontal="16dp" android:layout_marginBottom="8dp" android:hint="Accent">
+            <EditText android:id="@+id/et_color_accent" android:layout_width="match_parent" android:layout_height="wrap_content" android:inputType="text" android:maxLines="1" />
+        </com.google.android.material.textfield.TextInputLayout>
+
+        <com.google.android.material.textfield.TextInputLayout style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox" android:layout_width="match_parent" android:layout_height="wrap_content" android:layout_marginHorizontal="16dp" android:layout_marginBottom="8dp" android:hint="Border">
+            <EditText android:id="@+id/et_color_border" android:layout_width="match_parent" android:layout_height="wrap_content" android:inputType="text" android:maxLines="1" />
+        </com.google.android.material.textfield.TextInputLayout>
+
+        <com.google.android.material.textfield.TextInputLayout style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox" android:layout_width="match_parent" android:layout_height="wrap_content" android:layout_marginHorizontal="16dp" android:layout_marginBottom="8dp" android:hint="Selection">
+            <EditText android:id="@+id/et_color_selection" android:layout_width="match_parent" android:layout_height="wrap_content" android:inputType="text" android:maxLines="1" />
+        </com.google.android.material.textfield.TextInputLayout>
+
+        <com.google.android.material.textfield.TextInputLayout style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox" android:layout_width="match_parent" android:layout_height="wrap_content" android:layout_marginHorizontal="16dp" android:layout_marginBottom="8dp" android:hint="Toolbar">
+            <EditText android:id="@+id/et_color_toolbar" android:layout_width="match_parent" android:layout_height="wrap_content" android:inputType="text" android:maxLines="1" />
+        </com.google.android.material.textfield.TextInputLayout>
+
+        <com.google.android.material.textfield.TextInputLayout style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox" android:layout_width="match_parent" android:layout_height="wrap_content" android:layout_marginHorizontal="16dp" android:layout_marginBottom="16dp" android:hint="Toolbar text">
+            <EditText android:id="@+id/et_color_toolbar_text" android:layout_width="match_parent" android:layout_height="wrap_content" android:inputType="text" android:maxLines="1" />
+        </com.google.android.material.textfield.TextInputLayout>
+
+        <!-- Save button -->
+        <Button
+            android:id="@+id/btn_save_theme"
+            style="@style/Widget.MaterialComponents.Button"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginHorizontal="16dp"
+            android:layout_marginTop="8dp"
+            android:text="Save Theme" />
+
+    </LinearLayout>
+</ScrollView>

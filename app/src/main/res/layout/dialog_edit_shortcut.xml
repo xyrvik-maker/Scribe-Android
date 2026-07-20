@@ -1,0 +1,54 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:orientation="vertical"
+    android:padding="16dp">
+
+    <com.google.android.material.textfield.TextInputLayout
+        style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:hint="Button label"
+        android:layout_marginBottom="12dp">
+        <EditText android:id="@+id/et_shortcut_label" android:layout_width="match_parent" android:layout_height="wrap_content" android:singleLine="true" android:maxLength="10" />
+    </com.google.android.material.textfield.TextInputLayout>
+
+    <TextView android:layout_width="wrap_content" android:layout_height="wrap_content" android:text="Kind" android:textSize="13sp" android:alpha="0.7" android:layout_marginBottom="4dp" />
+
+    <RadioGroup
+        android:id="@+id/rg_shortcut_kind"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        android:layout_marginBottom="12dp">
+        <RadioButton android:id="@+id/rb_insert" android:layout_width="wrap_content" android:layout_height="wrap_content" android:text="Insert" />
+        <RadioButton android:id="@+id/rb_wrap" android:layout_width="wrap_content" android:layout_height="wrap_content" android:text="Wrap" android:layout_marginStart="16dp" />
+        <RadioButton android:id="@+id/rb_pair" android:layout_width="wrap_content" android:layout_height="wrap_content" android:text="Pair" android:layout_marginStart="16dp" />
+    </RadioGroup>
+
+    <com.google.android.material.textfield.TextInputLayout
+        style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:hint="Payload (text to insert)"
+        android:layout_marginBottom="12dp">
+        <EditText android:id="@+id/et_shortcut_payload" android:layout_width="match_parent" android:layout_height="wrap_content" android:fontFamily="monospace" />
+    </com.google.android.material.textfield.TextInputLayout>
+
+    <LinearLayout
+        android:id="@+id/layout_closing"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:visibility="gone">
+        <com.google.android.material.textfield.TextInputLayout
+            style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:hint="Closing character (for wrap/pair)">
+            <EditText android:id="@+id/et_shortcut_closing" android:layout_width="match_parent" android:layout_height="wrap_content" android:fontFamily="monospace" />
+        </com.google.android.material.textfield.TextInputLayout>
+    </LinearLayout>
+
+</LinearLayout>

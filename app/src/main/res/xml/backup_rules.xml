@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!--
+  Android 12+ (API 31+) full-backup rules.
+  Room database and SharedPreferences are included; export cache is excluded.
+-->
+<full-backup-content>
+    <!-- Include Room database -->
+    <include domain="database" path="scribe_db" />
+    <!-- Include prefs -->
+    <include domain="sharedpref" path="scribe_prefs.xml" />
+    <!-- Exclude temporary export files -->
+    <exclude domain="external" path="exports/" />
+    <exclude domain="cache" path="exports/" />
+</full-backup-content>

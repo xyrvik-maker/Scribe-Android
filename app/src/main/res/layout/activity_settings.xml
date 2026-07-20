@@ -1,0 +1,102 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ScrollView
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        android:paddingBottom="32dp">
+
+        <!-- Storage section -->
+        <TextView style="@style/SectionHeader" android:text="Storage" />
+
+        <LinearLayout style="@style/SettingsRow">
+            <LinearLayout android:layout_width="0dp" android:layout_height="wrap_content" android:layout_weight="1" android:orientation="vertical">
+                <TextView style="@style/SettingsLabel" android:text="Connected folder" />
+                <TextView android:id="@+id/tv_current_folder" style="@style/SettingsValue" android:text="My Vault" />
+            </LinearLayout>
+        </LinearLayout>
+
+        <Button
+            android:id="@+id/btn_disconnect_folder"
+            style="@style/Widget.MaterialComponents.Button.TextButton"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="16dp"
+            android:text="Disconnect folder"
+            android:textColor="#C0392B"
+            android:visibility="gone" />
+
+        <!-- Appearance section -->
+        <TextView style="@style/SectionHeader" android:text="Appearance" />
+
+        <LinearLayout style="@style/SettingsRow" android:id="@+id/btn_themes">
+            <TextView style="@style/SettingsLabel" android:layout_width="0dp" android:layout_weight="1" android:text="Theme" />
+            <TextView android:id="@+id/tv_active_theme" style="@style/SettingsValue" android:text="Paper" />
+            <ImageView android:layout_width="20dp" android:layout_height="20dp" android:src="@drawable/ic_arrow_right" android:alpha="0.4" />
+        </LinearLayout>
+
+        <!-- Writing section -->
+        <TextView style="@style/SectionHeader" android:text="Writing" />
+
+        <LinearLayout style="@style/SettingsRow">
+            <TextView style="@style/SettingsLabel" android:layout_width="0dp" android:layout_weight="1" android:text="Show word count" />
+            <androidx.appcompat.widget.SwitchCompat android:id="@+id/switch_word_count" android:layout_width="wrap_content" android:layout_height="wrap_content" />
+        </LinearLayout>
+
+        <LinearLayout style="@style/SettingsRow">
+            <TextView style="@style/SettingsLabel" android:layout_width="0dp" android:layout_weight="1" android:text="Typewriter mode" />
+            <androidx.appcompat.widget.SwitchCompat android:id="@+id/switch_typewriter" android:layout_width="wrap_content" android:layout_height="wrap_content" />
+        </LinearLayout>
+
+        <LinearLayout style="@style/SettingsRow" android:id="@+id/btn_line_spacing">
+            <TextView style="@style/SettingsLabel" android:layout_width="0dp" android:layout_weight="1" android:text="Line spacing" />
+            <TextView android:id="@+id/tv_line_spacing" style="@style/SettingsValue" android:text="Comfortable" />
+        </LinearLayout>
+
+        <LinearLayout style="@style/SettingsRow">
+            <TextView style="@style/SettingsLabel" android:layout_width="0dp" android:layout_weight="1" android:text="Editor font size" />
+            <TextView android:id="@+id/tv_font_size_value" style="@style/SettingsValue" android:text="16sp" />
+        </LinearLayout>
+
+        <com.google.android.material.slider.Slider
+            android:id="@+id/slider_font_size"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="16dp"
+            android:layout_marginEnd="16dp"
+            android:valueFrom="14"
+            android:valueTo="22"
+            android:stepSize="1" />
+
+        <!-- Goals section -->
+        <TextView style="@style/SectionHeader" android:text="Writing Goals" />
+
+        <LinearLayout style="@style/SettingsRow" android:id="@+id/btn_set_goal">
+            <LinearLayout android:layout_width="0dp" android:layout_height="wrap_content" android:layout_weight="1" android:orientation="vertical">
+                <TextView style="@style/SettingsLabel" android:text="Daily word goal" />
+                <TextView android:id="@+id/tv_daily_goal" style="@style/SettingsValue" android:text="500 words" />
+            </LinearLayout>
+            <ImageView android:layout_width="20dp" android:layout_height="20dp" android:src="@drawable/ic_arrow_right" android:alpha="0.4" />
+        </LinearLayout>
+
+        <LinearLayout style="@style/SettingsRow">
+            <TextView style="@style/SettingsLabel" android:layout_width="0dp" android:layout_weight="1" android:text="Today" />
+            <TextView android:id="@+id/tv_today_words" style="@style/SettingsValue" android:text="0 words" />
+        </LinearLayout>
+
+        <LinearLayout style="@style/SettingsRow">
+            <TextView style="@style/SettingsLabel" android:layout_width="0dp" android:layout_weight="1" android:text="Current streak" />
+            <TextView android:id="@+id/tv_streak" style="@style/SettingsValue" android:text="0 day streak" />
+        </LinearLayout>
+
+        <LinearLayout style="@style/SettingsRow">
+            <TextView style="@style/SettingsLabel" android:layout_width="0dp" android:layout_weight="1" android:text="Best streak" />
+            <TextView android:id="@+id/tv_longest_streak" style="@style/SettingsValue" android:text="Longest: 0 days" />
+        </LinearLayout>
+
+    </LinearLayout>
+</ScrollView>

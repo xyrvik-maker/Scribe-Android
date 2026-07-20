@@ -1,0 +1,78 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="app_name">Scribe</string>
+    <string name="file_provider_authority">com.primaloptima.scribe.fileprovider</string>
+
+    <!-- Editor -->
+    <string name="editor_hint">Start writing…</string>
+    <string name="no_note_open">No note open</string>
+    <string name="untitled">Untitled</string>
+
+    <!-- Actions -->
+    <string name="action_new_note">New note</string>
+    <string name="action_delete">Delete</string>
+    <string name="action_rename">Rename</string>
+    <string name="action_duplicate">Duplicate</string>
+    <string name="action_edit">Edit</string>
+    <string name="action_save">Save</string>
+    <string name="action_cancel">Cancel</string>
+    <string name="action_close">Close</string>
+    <string name="action_restore">Restore</string>
+    <string name="action_dismiss">Dismiss</string>
+    <string name="action_connect_folder">Connect folder</string>
+    <string name="action_disconnect_folder">Disconnect folder</string>
+    <string name="action_reset">Reset to defaults</string>
+    <string name="action_export">Export</string>
+    <string name="action_find">Find</string>
+    <string name="action_replace">Replace</string>
+    <string name="action_replace_all">Replace all</string>
+
+    <!-- Descriptions -->
+    <string name="cd_menu">Open menu</string>
+    <string name="cd_sidebar">Outline panel</string>
+    <string name="cd_find">Find</string>
+    <string name="cd_more">More options</string>
+    <string name="cd_undo">Undo</string>
+    <string name="cd_redo">Redo</string>
+    <string name="cd_new_note">New note</string>
+    <string name="cd_new_theme">New theme</string>
+    <string name="cd_new_shortcut">New shortcut</string>
+    <string name="cd_new_sheet">New sheet</string>
+
+    <!-- Messages -->
+    <string name="recovery_message">Unsaved content found. Restore?</string>
+    <string name="no_history">No history yet.\n\nScribe saves a snapshot every 3 minutes\nor when your word count changes significantly.</string>
+    <string name="confirm_delete_note">This cannot be undone.</string>
+    <string name="confirm_disconnect">The files will remain on disk. Scribe will switch back to the local vault.</string>
+
+    <!-- Themes -->
+    <string name="theme_paper">Paper</string>
+    <string name="theme_midnight">Midnight</string>
+    <string name="theme_sepia">Sepia</string>
+    <string name="theme_typewriter">Typewriter</string>
+    <string name="theme_focus">Focus</string>
+
+    <!-- Export formats -->
+    <string name="export_txt">Plain Text (.txt)</string>
+    <string name="export_md">Markdown (.md)</string>
+    <string name="export_html">HTML (.html)</string>
+    <string name="export_pdf">PDF</string>
+    <string name="export_epub">EPUB (.epub)</string>
+    <string name="export_docx">Word (.docx)</string>
+
+    <!-- Settings -->
+    <string name="settings_storage">Storage</string>
+    <string name="settings_appearance">Appearance</string>
+    <string name="settings_writing">Writing</string>
+    <string name="settings_goals">Writing Goals</string>
+    <string name="settings_vault_name">Vault name</string>
+    <string name="settings_theme">Theme</string>
+    <string name="settings_show_word_count">Show word count</string>
+    <string name="settings_typewriter">Typewriter mode</string>
+    <string name="settings_line_spacing">Line spacing</string>
+    <string name="settings_font_size">Editor font size</string>
+    <string name="settings_daily_goal">Daily word goal</string>
+    <string name="settings_today">Today</string>
+    <string name="settings_streak">Current streak</string>
+    <string name="settings_best_streak">Best streak</string>
+</resources>
