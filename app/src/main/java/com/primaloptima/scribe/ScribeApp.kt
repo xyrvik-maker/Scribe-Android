@@ -2,6 +2,7 @@ package com.primaloptima.scribe
 
 import android.app.Application
 import android.content.Intent
+import androidx.appcompat.app.AppCompatDelegate
 import com.primaloptima.scribe.data.AppDatabase
 import com.primaloptima.scribe.util.PrefsManager
 import com.primaloptima.scribe.util.ThemeManager
@@ -15,6 +16,12 @@ class ScribeApp : Application() {
     val themeManager: ThemeManager by lazy { ThemeManager(this) }
 
     override fun onCreate() {
+        // Disable AppCompat's DayNight auto-switching.  Scribe manages its own
+        // theming entirely in code (ThemeManager / applyTheme); letting AppCompat
+        // also try to switch between day/night resources causes an infinite
+        // activity-recreation loop on devices that have system dark mode enabled.
+        AppCompatDelegate.setDefaultNightMode(AppCompatDelegate.MODE_NIGHT_NO)
+
         // Install the crash handler FIRST — before any other init — so we
         // catch failures that happen during lazy property initialisation.
         installCrashHandler()

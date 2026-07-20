@@ -354,9 +354,24 @@ class MainActivity : AppCompatActivity() {
         zenMode = !zenMode
         topBar.visibility = if (zenMode) View.GONE else View.VISIBLE
         shortcutBar.visibility = if (zenMode) View.GONE else View.VISIBLE
-        window.decorView.systemUiVisibility = if (zenMode)
-            View.SYSTEM_UI_FLAG_FULLSCREEN or View.SYSTEM_UI_FLAG_HIDE_NAVIGATION
-        else 0
+        if (android.os.Build.VERSION.SDK_INT >= android.os.Build.VERSION_CODES.R) {
+            val controller = window.insetsController
+            if (zenMode) {
+                controller?.hide(android.view.WindowInsets.Type.statusBars()
+                        or android.view.WindowInsets.Type.navigationBars())
+                controller?.systemBarsBehavior =
+                    android.view.WindowInsetsController.BEHAVIOR_SHOW_TRANSIENT_BARS_BY_SWIPE
+            } else {
+                controller?.show(android.view.WindowInsets.Type.statusBars()
+                        or android.view.WindowInsets.Type.navigationBars())
+            }
+        } else {
+            @Suppress("DEPRECATION")
+            window.decorView.systemUiVisibility = if (zenMode)
+                View.SYSTEM_UI_FLAG_FULLSCREEN or View.SYSTEM_UI_FLAG_HIDE_NAVIGATION or
+                View.SYSTEM_UI_FLAG_IMMERSIVE_STICKY
+            else 0
+        }
     }
 
     // ── Note list (left drawer) ────────────────────────────────────────────────
@@ -445,8 +460,10 @@ class MainActivity : AppCompatActivity() {
             .setMessage("This cannot be undone.")
             .setPositiveButton("Delete") { _, _ ->
                 if (editorVm.activeNote.value?.id == note.id) {
+                    // Clear the editor immediately and cancel pending autosave so it
+                    // can't write the content back after the DB row is gone.
                     editor.setContentSilently("")
-                    editorVm.activeNote // will be cleared by VM
+                    editorVm.clearActiveNote()
                 }
                 noteListVm.deleteNote(note.id)
             }

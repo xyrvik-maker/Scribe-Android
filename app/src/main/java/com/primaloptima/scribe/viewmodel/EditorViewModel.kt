@@ -109,8 +109,15 @@ class EditorViewModel(application: Application) : AndroidViewModel(application) 
 
     // ── Note loading ──────────────────────────────────────────────────────────
 
+    /** The currently in-flight loadNote Job; cancelled by clearActiveNote(). */
+    private var loadNoteJob: Job? = null
+
     fun loadNote(noteId: String) {
-        viewModelScope.launch {
+        // Guard: if the requested note is already active or a load is in flight
+        // for the same note, don't launch a duplicate coroutine.
+        if (_activeNote.value?.id == noteId) return
+        if (loadNoteJob?.isActive == true) return
+        loadNoteJob = viewModelScope.launch {
             val note = withContext(Dispatchers.IO) { db.noteDao().getById(noteId) } ?: return@launch
             // For SAF-backed notes, lazily read content from disk if not yet loaded
             val loaded = if (note.externalUri != null && !note.loaded) {
@@ -128,6 +135,24 @@ class EditorViewModel(application: Application) : AndroidViewModel(application) 
             updateStats(loaded.content)
             checkRecovery(loaded)
         }
+    }
+
+    /** Clear the active note and cancel any pending autosave or in-flight load.
+     *  Call this when the active note is deleted so autosave can't resurrect it. */
+    fun clearActiveNote() {
+        loadNoteJob?.cancel()
+        loadNoteJob = null
+        autosaveJob?.cancel()
+        autosaveJob = null
+        _activeNote.value = null
+        _outline.value = emptyList()
+        _wordCount.value = 0
+        _charCount.value = 0
+        _readingTime.value = 0
+        _goalProgress.value = 0f
+        _recoveryAvailable.value = false
+        lastSavedContent = ""
+        lastWordCount = 0
     }
 
     // ── Content change (called on every autosave tick) ────────────────────────
