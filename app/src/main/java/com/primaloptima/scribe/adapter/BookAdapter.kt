@@ -71,6 +71,9 @@ class BookAdapter(
 
         holder.root.setOnClickListener { onClick(book) }
         holder.root.setOnLongClickListener { onLongClick(book, holder.root); true }
+        // "⋮" button in list rows triggers the same long-press menu
+        holder.root.findViewById<android.widget.ImageButton?>(R.id.btn_more)
+            ?.setOnClickListener { onLongClick(book, it) }
     }
 
     override fun getItemCount() = items.size

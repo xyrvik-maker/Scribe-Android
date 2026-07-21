@@ -139,6 +139,15 @@ class MainActivity : AppCompatActivity() {
         val bookId = intent.getStringExtra(EXTRA_BOOK_ID) ?: Note.DEFAULT_BOOK_ID
         bookVm.init(bookId)
         floatingWindowManager = FloatingWindowManager(this)
+
+        // If BookActivity asked us to open the note as a floating window, do it after load
+        if (intent.getBooleanExtra("openInFloat", false)) {
+            bookVm.notes.observe(this) { notes ->
+                val noteId = intent.getStringExtra(EXTRA_NOTE_ID) ?: return@observe
+                val note   = notes.firstOrNull { it.id == noteId } ?: return@observe
+                floatingWindowManager.openWindow(note)
+            }
+        }
     }
 
     override fun onResume() {
@@ -464,7 +473,7 @@ class MainActivity : AppCompatActivity() {
                     3 -> floatingWindowManager.openWindow(note)
                     4 -> togglePinNote(note.id, "top",    isPinnedTop)
                     5 -> togglePinNote(note.id, "bottom", isPinnedBottom)
-                    6 -> showExportDialog(editorVm.activeNote.value?.let { if (it.id == note.id) it else null } ?: note)
+                    6 -> showExportDialog(note)
                     7 -> confirmDeleteNote(note)
                     8 -> {
                         prefs.activeNoteId = note.id

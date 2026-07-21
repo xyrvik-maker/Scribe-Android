@@ -83,7 +83,6 @@
                     android:layout_width="72dp"
                     android:layout_height="96dp"
                     android:scaleType="centerCrop"
-                    android:src="@drawable/ic_folder"
                     android:background="#1A888888" />
 
                 <!-- Details -->
@@ -160,26 +159,41 @@
     <!-- Empty state -->
     <LinearLayout
         android:id="@+id/empty_state"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
         android:layout_gravity="center"
         android:orientation="vertical"
         android:gravity="center"
-        android:visibility="gone">
+        android:paddingBottom="80dp"
+        android:visibility="gone"
+        app:layout_behavior="@string/appbar_scrolling_view_behavior">
 
         <ImageView
-            android:layout_width="48dp"
-            android:layout_height="48dp"
-            android:src="@drawable/ic_edit"
-            android:alpha="0.3" />
+            android:layout_width="64dp"
+            android:layout_height="64dp"
+            android:src="@drawable/ic_quill"
+            android:tint="@color/scribe_amber"
+            android:alpha="0.5"
+            android:contentDescription="No notes" />
 
         <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_marginTop="12dp"
-            android:text="@string/no_files_yet"
-            android:textSize="15sp"
-            android:alpha="0.45" />
+            android:layout_marginTop="18dp"
+            android:text="No notes yet"
+            android:textSize="18sp"
+            android:textStyle="bold"
+            android:fontFamily="serif" />
+
+        <TextView
+            android:layout_width="240dp"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="8dp"
+            android:text="Tap + to create your first note in this book."
+            android:textSize="14sp"
+            android:alpha="0.5"
+            android:gravity="center"
+            android:lineSpacingMultiplier="1.4" />
     </LinearLayout>
 
     <!-- FAB -->
